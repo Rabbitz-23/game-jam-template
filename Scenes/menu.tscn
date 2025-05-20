@@ -1,19 +1,35 @@
-[gd_scene load_steps=9 format=3 uid="uid://bko0ifwwfqndb"]
+[gd_scene load_steps=15 format=3 uid="uid://bko0ifwwfqndb"]
 
-[ext_resource type="Script" path="res://Scripts/play_button.gd" id="1_nyeas"]
-[ext_resource type="Script" path="res://Scripts/credits.gd" id="2_cb2hs"]
+[ext_resource type="Texture2D" uid="uid://qaxwax4j2e3c" path="res://Sprites/UI/Menu principal - Ing.png" id="1_g8i7c"]
+[ext_resource type="Script" uid="uid://4neacr1baql" path="res://Scripts/play_button.gd" id="1_nyeas"]
+[ext_resource type="Script" uid="uid://unl6qipcfm5e" path="res://Scripts/Localization/SpriteLocalizator.gd" id="2_23t3j"]
+[ext_resource type="Script" uid="uid://3vffkbee0wco" path="res://Scripts/credits.gd" id="2_cb2hs"]
 [ext_resource type="AudioStream" uid="uid://pdsjvudu0kf8" path="res://Audio/mouse-click-153941.mp3" id="2_j7bih"]
-[ext_resource type="Script" path="res://Scripts/options.gd" id="2_yb5yv"]
-[ext_resource type="Script" path="res://Scripts/CreditsPanel.gd" id="3_h6cna"]
-[ext_resource type="AudioStream" uid="uid://c7swdp5vyrn1a" path="res://Audio/Spring_In_My_Step.ogg" id="5_n8v8w"]
+[ext_resource type="Script" uid="uid://qwxcq3vllgmj" path="res://Scripts/options.gd" id="2_yb5yv"]
+[ext_resource type="Texture2D" uid="uid://bav3n0nk31c2l" path="res://Sprites/UI/Menu principal - Esp.png" id="3_8ph6h"]
+[ext_resource type="Script" uid="uid://cl65u4587h6jc" path="res://Scripts/CreditsPanel.gd" id="3_h6cna"]
+[ext_resource type="Texture2D" uid="uid://dxafhx4g0nb18" path="res://Sprites/UI/Menu principal - CAT.png" id="4_5ti5v"]
+[ext_resource type="Texture2D" uid="uid://dhr30p0q1dk5m" path="res://Sprites/UI/Parte 2 - Menú dentro del jeugo.png" id="5_8ph6h"]
 [ext_resource type="PackedScene" uid="uid://dj5irjery4ayh" path="res://Scenes/volumeSlider.tscn" id="6_rnviu"]
-[ext_resource type="Script" path="res://Scenes/game_save_controller.gd" id="8_nshsa"]
+[ext_resource type="Script" uid="uid://fn6c62xk4atn" path="res://Scripts/Localization/text_node_translator.gd" id="8_5ti5v"]
+[ext_resource type="Texture2D" uid="uid://cejnhc83ttl63" path="res://Sprites/UI/Parte 1 - Menú dentro del jeugo.png" id="10_1by5w"]
+[ext_resource type="AudioStream" uid="uid://b1i58gvmulmmp" path="res://Audio/Music/Anxietas (Main Menu).mp3" id="14_8ph6h"]
 
 [node name="Menu" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="TitleCard" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(808, 456)
+scale = Vector2(0.846296, 0.846296)
+texture = ExtResource("1_g8i7c")
+
+[node name="SpriteTranslator" type="Node" parent="CanvasLayer/TitleCard"]
+script = ExtResource("2_23t3j")
+localizedSprites = Array[Texture2D]([ExtResource("3_8ph6h"), ExtResource("1_g8i7c"), ExtResource("4_5ti5v")])
+
 [node name="Title" type="Label" parent="CanvasLayer"]
+visible = false
 offset_top = 128.0
 offset_right = 1152.0
 offset_bottom = 195.0
@@ -23,50 +39,123 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PlayButton" type="Button" parent="CanvasLayer"]
-offset_left = 480.0
-offset_top = 216.0
-offset_right = 664.0
-offset_bottom = 264.0
+self_modulate = Color(1, 1, 1, 0)
+z_index = 2
+offset_left = 720.0
+offset_top = 496.0
+offset_right = 904.0
+offset_bottom = 544.0
 text = "Play"
+icon_alignment = 1
+expand_icon = true
 script = ExtResource("1_nyeas")
+
+[node name="ButtonSprite" type="Sprite2D" parent="CanvasLayer/PlayButton"]
+z_as_relative = false
+position = Vector2(92, 28)
+scale = Vector2(0.306667, 0.118343)
+texture = ExtResource("5_8ph6h")
+
+[node name="Label" type="Label" parent="CanvasLayer/PlayButton"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 48.0
+text = "Comenzar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextNodeTranslator" type="Node" parent="CanvasLayer/PlayButton/Label"]
+script = ExtResource("8_5ti5v")
+localizedLabels = Array[String](["Comenzar", "Start", "Començar"])
 
 [node name="MouseClick" type="AudioStreamPlayer2D" parent="CanvasLayer/PlayButton"]
 stream = ExtResource("2_j7bih")
 bus = &"sfx"
 
-[node name="Options" type="Button" parent="CanvasLayer"]
-offset_left = 480.0
-offset_top = 280.0
-offset_right = 664.0
-offset_bottom = 328.0
-text = "Options"
+[node name="OptionsButton" type="Button" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 2
+offset_left = 720.0
+offset_top = 560.0
+offset_right = 904.0
+offset_bottom = 608.0
+text = "Play"
+icon_alignment = 1
+expand_icon = true
 script = ExtResource("2_yb5yv")
 
-[node name="MouseClick" type="AudioStreamPlayer2D" parent="CanvasLayer/Options"]
-position = Vector2(0, -64)
+[node name="ButtonSprite" type="Sprite2D" parent="CanvasLayer/OptionsButton"]
+z_as_relative = false
+position = Vector2(92, 28)
+scale = Vector2(0.306667, 0.118343)
+texture = ExtResource("5_8ph6h")
+
+[node name="Label" type="Label" parent="CanvasLayer/OptionsButton"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 48.0
+text = "Opciones"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextNodeTranslator" type="Node" parent="CanvasLayer/OptionsButton/Label"]
+script = ExtResource("8_5ti5v")
+localizedLabels = Array[String](["Opciones", "Settings", "Opcions"])
+
+[node name="MouseClick" type="AudioStreamPlayer2D" parent="CanvasLayer/OptionsButton"]
 stream = ExtResource("2_j7bih")
 bus = &"sfx"
 
-[node name="Credits" type="Button" parent="CanvasLayer"]
-offset_left = 480.0
-offset_top = 344.0
-offset_right = 664.0
-offset_bottom = 392.0
-text = "Credits"
+[node name="CreditsButton" type="Button" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 2
+offset_left = 720.0
+offset_top = 624.0
+offset_right = 904.0
+offset_bottom = 672.0
+text = "Play"
+icon_alignment = 1
+expand_icon = true
 script = ExtResource("2_cb2hs")
 
-[node name="MouseClick" type="AudioStreamPlayer2D" parent="CanvasLayer/Credits"]
-position = Vector2(0, -64)
+[node name="ButtonSprite" type="Sprite2D" parent="CanvasLayer/CreditsButton"]
+z_as_relative = false
+position = Vector2(92, 28)
+scale = Vector2(0.306667, 0.118343)
+texture = ExtResource("5_8ph6h")
+
+[node name="Label" type="Label" parent="CanvasLayer/CreditsButton"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 48.0
+text = "Créditos"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextNodeTranslator" type="Node" parent="CanvasLayer/CreditsButton/Label"]
+script = ExtResource("8_5ti5v")
+localizedLabels = Array[String](["Créditos", "Credits", "Crèdits"])
+
+[node name="MouseClick" type="AudioStreamPlayer2D" parent="CanvasLayer/CreditsButton"]
 stream = ExtResource("2_j7bih")
 bus = &"sfx"
 
 [node name="CreditsPanel" type="Panel" parent="CanvasLayer"]
 visible = false
-offset_left = 48.0
-offset_top = 40.0
-offset_right = 1120.0
-offset_bottom = 616.0
+z_index = 4
+offset_left = 296.0
+offset_top = 240.0
+offset_right = 1368.0
+offset_bottom = 816.0
 script = ExtResource("3_h6cna")
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer/CreditsPanel"]
+position = Vector2(536, 216)
+scale = Vector2(0.757813, 0.785185)
+texture = ExtResource("10_1by5w")
 
 [node name="MouseClick" type="AudioStreamPlayer2D" parent="CanvasLayer/CreditsPanel"]
 position = Vector2(432, 176)
@@ -75,41 +164,52 @@ bus = &"sfx"
 
 [node name="Title" type="Label" parent="CanvasLayer/CreditsPanel"]
 layout_mode = 0
-offset_left = 408.0
-offset_top = 224.0
-offset_right = 648.0
-offset_bottom = 272.0
+offset_left = 416.0
+offset_top = -72.0
+offset_right = 656.0
+offset_bottom = -24.0
 theme_override_font_sizes/font_size = 28
 text = "A Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TextNodeTranslator2" type="Node" parent="CanvasLayer/CreditsPanel/Title"]
+script = ExtResource("8_5ti5v")
+localizedLabels = Array[String](["La Cuna: El Despertar", "The Cradle: Awakening", "El Bressol: El Despertar"])
+
 [node name="Credits Line 1" type="Label" parent="CanvasLayer/CreditsPanel"]
 layout_mode = 0
 offset_left = 408.0
-offset_top = 272.0
 offset_right = 648.0
-offset_bottom = 320.0
+offset_bottom = 88.0
 theme_override_font_sizes/font_size = 16
-text = "by David Church Rodríguez"
-horizontal_alignment = 1
+text = "💻 David Church Rodríguez
+🎨 Júlia Moyano Olmo
+🎼 María Milán Salinas"
 vertical_alignment = 1
 
 [node name="CloseButton" type="Button" parent="CanvasLayer/CreditsPanel"]
 layout_mode = 0
-offset_left = 1024.0
-offset_top = 16.0
-offset_right = 1056.0
-offset_bottom = 48.0
+offset_left = 1184.0
+offset_top = -152.0
+offset_right = 1216.0
+offset_bottom = -120.0
 text = "X"
 
 [node name="OptionsPanel" type="Panel" parent="CanvasLayer"]
 visible = false
-offset_left = 48.0
-offset_top = 40.0
-offset_right = 1120.0
-offset_bottom = 616.0
+modulate = Color(0.881042, 0.893524, 1, 1)
+z_index = 4
+offset_left = 136.0
+offset_top = 64.0
+offset_right = 1536.0
+offset_bottom = 824.0
 script = ExtResource("3_h6cna")
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer/OptionsPanel"]
+position = Vector2(696, 392)
+scale = Vector2(0.757813, 0.785185)
+texture = ExtResource("10_1by5w")
 
 [node name="MouseClick" type="AudioStreamPlayer2D" parent="CanvasLayer/OptionsPanel"]
 position = Vector2(432, 176)
@@ -118,30 +218,47 @@ bus = &"sfx"
 
 [node name="Title" type="Label" parent="CanvasLayer/OptionsPanel"]
 layout_mode = 0
-offset_left = 408.0
-offset_top = 56.0
-offset_right = 648.0
-offset_bottom = 104.0
+offset_left = 616.0
+offset_top = 144.0
+offset_right = 856.0
+offset_bottom = 225.0
 theme_override_font_sizes/font_size = 28
 text = "Options
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TextNodeTranslator2" type="Node" parent="CanvasLayer/OptionsPanel/Title"]
+script = ExtResource("8_5ti5v")
+localizedLabels = Array[String](["Opciones", "Settings", "Opcions"])
+
+[node name="VolumeTitle" type="Label" parent="CanvasLayer/OptionsPanel"]
+layout_mode = 0
+offset_left = 648.0
+offset_top = 208.0
+offset_right = 832.0
+offset_bottom = 240.0
+theme_override_font_sizes/font_size = 20
+text = "Volum"
+
+[node name="TextNodeTranslator2" type="Node" parent="CanvasLayer/OptionsPanel/VolumeTitle"]
+script = ExtResource("8_5ti5v")
+localizedLabels = Array[String](["Volumen", "Volume", "Volum"])
+
 [node name="CloseButton" type="Button" parent="CanvasLayer/OptionsPanel"]
 layout_mode = 0
-offset_left = 1024.0
-offset_top = 16.0
-offset_right = 1056.0
-offset_bottom = 48.0
+offset_left = 1344.0
+offset_top = 24.0
+offset_right = 1376.0
+offset_bottom = 56.0
 text = "X"
 
 [node name="MasterVolume" type="Label" parent="CanvasLayer/OptionsPanel"]
 layout_mode = 0
-offset_left = 400.0
-offset_top = 144.0
-offset_right = 518.0
-offset_bottom = 167.0
+offset_left = 648.0
+offset_top = 248.0
+offset_right = 766.0
+offset_bottom = 271.0
 text = "Master Volume"
 
 [node name="HSlider" parent="CanvasLayer/OptionsPanel/MasterVolume" instance=ExtResource("6_rnviu")]
@@ -152,12 +269,16 @@ offset_right = 244.0
 offset_bottom = 24.0
 bus_name = "Master"
 
+[node name="TextNodeTranslator3" type="Node" parent="CanvasLayer/OptionsPanel/MasterVolume"]
+script = ExtResource("8_5ti5v")
+localizedLabels = Array[String](["Global", "Master", "Global"])
+
 [node name="MusicVolume" type="Label" parent="CanvasLayer/OptionsPanel"]
 layout_mode = 0
-offset_left = 400.0
-offset_top = 176.0
-offset_right = 518.0
-offset_bottom = 199.0
+offset_left = 648.0
+offset_top = 280.0
+offset_right = 766.0
+offset_bottom = 329.0
 text = "Music Volume
 "
 
@@ -169,12 +290,16 @@ offset_right = 244.0
 offset_bottom = 24.0
 bus_name = "music"
 
+[node name="TextNodeTranslator4" type="Node" parent="CanvasLayer/OptionsPanel/MusicVolume"]
+script = ExtResource("8_5ti5v")
+localizedLabels = Array[String](["Música", "Music", "Música"])
+
 [node name="SFXVolume" type="Label" parent="CanvasLayer/OptionsPanel"]
 layout_mode = 0
-offset_left = 400.0
-offset_top = 208.0
-offset_right = 518.0
-offset_bottom = 231.0
+offset_left = 648.0
+offset_top = 312.0
+offset_right = 766.0
+offset_bottom = 335.0
 text = "SFX Volume"
 
 [node name="HSlider" parent="CanvasLayer/OptionsPanel/SFXVolume" instance=ExtResource("6_rnviu")]
@@ -185,19 +310,46 @@ offset_right = 244.0
 offset_bottom = 24.0
 bus_name = "sfx"
 
+[node name="TextNodeTranslator5" type="Node" parent="CanvasLayer/OptionsPanel/SFXVolume"]
+script = ExtResource("8_5ti5v")
+localizedLabels = Array[String](["Sonidos", "SFX", "Efectes de so"])
+
+[node name="LanguageLabel" type="Label" parent="CanvasLayer/OptionsPanel"]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 368.0
+offset_right = 731.0
+offset_bottom = 391.0
+text = "Language"
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/OptionsPanel/LanguageLabel"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = -8.0
+offset_right = 217.0
+offset_bottom = 23.0
+selected = 0
+item_count = 3
+popup/item_0/text = "esES"
+popup/item_0/id = 0
+popup/item_1/text = "enEN"
+popup/item_1/id = 1
+popup/item_2/text = "caCA"
+popup/item_2/id = 2
+
+[node name="TextNodeTranslator6" type="Node" parent="CanvasLayer/OptionsPanel/LanguageLabel"]
+script = ExtResource("8_5ti5v")
+localizedLabels = Array[String](["Idioma", "Language", "Idioma"])
+
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_n8v8w")
+stream = ExtResource("14_8ph6h")
 autoplay = true
 bus = &"music"
 parameters/looping = true
 
-[node name="GameSaveController" type="Node2D" parent="."]
-script = ExtResource("8_nshsa")
-
-[node name="Player" type="Node2D" parent="GameSaveController"]
-
 [connection signal="pressed" from="CanvasLayer/PlayButton" to="CanvasLayer/PlayButton" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/Options" to="CanvasLayer/Options" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/Credits" to="CanvasLayer/Credits" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/OptionsButton" to="CanvasLayer/OptionsButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/CreditsButton" to="CanvasLayer/CreditsButton" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/CreditsPanel/CloseButton" to="CanvasLayer/CreditsPanel" method="_on_close_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/OptionsPanel/CloseButton" to="CanvasLayer/OptionsPanel" method="_on_close_button_pressed"]
+[connection signal="item_selected" from="CanvasLayer/OptionsPanel/LanguageLabel/OptionButton" to="CanvasLayer/OptionsPanel" method="_on_option_button_item_selected"]

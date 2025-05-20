@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bv3eulj0jl05l"
+path="res://.godot/imported/Agón (Combate).mp3-e4c76f791acec35350c72a48e8c46af5.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Agón (Combate).mp3"
+dest_files=["res://.godot/imported/Agón (Combate).mp3-e4c76f791acec35350c72a48e8c46af5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
