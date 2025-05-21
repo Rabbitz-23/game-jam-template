@@ -1,60 +1,62 @@
 extends CharacterBody2D
 
+enum playerState {
+	IDLE,
+	MOVING,
+	SHOOTING
+}
 
 const SPEED = 300.0
-var direction : String
 var idle: bool
 var waiting: bool
+var state: playerState
 @export var wait_time: float
 var wait_timer : float
 @onready var anim : AnimatedSprite2D = get_node("AnimatedSprite2D")
+var movVel: Vector2
 
+func _ready():
+	_change_state(playerState.IDLE)
 
+func _change_state(newState: playerState):
+	if newState == playerState.IDLE:
+		anim.animation = "Idle"
+		state = playerState.IDLE
+	if newState == playerState.MOVING:
+		state = playerState.MOVING
+	
 func _physics_process(delta):
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var directionH = Input.get_axis("ui_left", "ui_right")
-	var directionV = Input.get_axis("ui_up", "ui_down")
-	if directionH:
-		idle = false
-		waiting = false
-		if directionH > 0:
-			direction = "East"
-		else:
-			direction = "West"
-		velocity.x = directionH * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	if directionV:
-		idle = false
-		waiting = false
-		if directionV > 0:
-			direction = "South"
-		else:
-			direction = "North"
-		velocity.y = directionV * SPEED
-	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
-	
-	if not idle and not waiting:
-		wait_timer = 0
-		waiting = true
-	if not idle and waiting:
-		wait_timer += delta
-		if wait_timer > wait_time:
-			idle = true
-	#Animation
+	if state == playerState.MOVING:
+		move_player(movVel)
 
-	if idle:
-		anim.play("Idle")
-	else:
-		if direction == "East":
-			anim.play("WalkingEast")
-		if direction == "West":
-			anim.play("WalkingWest")
-		if direction == "North":
-			anim.play("WalkingNorth")
-		if direction == "South":
-			anim.play("WalkingSouth")
-	
+func move_player(movVel: Vector2):
+	velocity.x = movVel.x * SPEED
+	velocity.y = movVel.y * SPEED
+	velocity.normalized()
+	if velocity == Vector2.ZERO:
+		_change_state(playerState.IDLE)
 	move_and_slide()
+
+func _unhandled_input(event):
+	if state == playerState.IDLE:
+		state = playerState.MOVING
+	var directionH
+	var directionV
+	if Input.is_action_pressed("ui_right"):
+		directionH = 1
+		anim.animation = "WalkingEast"
+	elif Input.is_action_pressed("ui_left"):
+		directionH = -1
+		anim.animation = "WalkingWest"
+	else:
+		directionH = 0
+	if Input.is_action_pressed("ui_up"):
+		directionV = -1
+		anim.animation = "WalkingNorth"
+	elif Input.is_action_pressed("ui_down"):
+		directionV = 1
+		anim.animation = "WalkingSouth"
+	else:
+		directionV = 0
+	movVel.x = directionH
+	movVel.y = directionV
