@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcgt7vpeb30v"]
+
+[ext_resource type="Texture2D" uid="uid://cpdkifs2jn150" path="res://icon.svg" id="1_m1htj"]
+[ext_resource type="Script" uid="uid://c3r7j7visc0em" path="res://Scripts/Controllers/generic_enemy_controller.gd" id="1_wovta"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wovta"]
+radius = 58.0775
+
+[node name="rb" type="RigidBody2D"]
+script = ExtResource("1_wovta")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wovta")
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_m1htj")

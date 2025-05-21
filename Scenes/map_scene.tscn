@@ -1,21 +1,43 @@
-[gd_scene load_steps=43 format=4 uid="uid://saa12b1iubt5"]
+[gd_scene load_steps=52 format=4 uid="uid://saa12b1iubt5"]
 
-[ext_resource type="Texture2D" uid="uid://chj4xjohgkq34" path="res://Sprites/TileMaps/Sci-Fi-Tiles_A2.png" id="1_dbk2w"]
-[ext_resource type="Texture2D" uid="uid://ciq6skerx3oih" path="res://Sprites/TileMaps/Sci-Fi-Tiles_A4.png" id="2_uc2rk"]
-[ext_resource type="Texture2D" uid="uid://d2mrbiqrjmbv0" path="res://Sprites/TileMaps/Sci-Fi-Tiles_A5.png" id="3_ii7mb"]
-[ext_resource type="Texture2D" uid="uid://csfwm45ojmidk" path="res://Sprites/TileMaps/Sci-Fi-Tiles_B.png" id="4_xsv5x"]
-[ext_resource type="Texture2D" uid="uid://5a6nx4a7yluf" path="res://Sprites/TileMaps/Sci-Fi-Tiles_C.png" id="5_ew6o3"]
-[ext_resource type="Texture2D" uid="uid://dikcco8bbj75y" path="res://Sprites/TileMaps/Sci-Fi-Tiles_D.png" id="6_gbk34"]
-[ext_resource type="Texture2D" uid="uid://7xr5inpcov77" path="res://Sprites/TileMaps/Sci-Fi-Tiles_E.png" id="7_vvhbp"]
-[ext_resource type="Script" uid="uid://cu2y87cnwiaeo" path="res://Scripts/player.gd" id="8_tdaup"]
-[ext_resource type="Texture2D" uid="uid://b637e4hoa17ko" path="res://Sprites/Characters/Barrel.png" id="9_sek5n"]
-[ext_resource type="Texture2D" uid="uid://doywxptg8d1gw" path="res://Sprites/Characters/Sprite - The Admin.png" id="12_2k8n3"]
-[ext_resource type="Script" uid="uid://c2ur4on5v4vsw" path="res://Scenes/interactive_area.gd" id="12_nbpn7"]
-[ext_resource type="Script" uid="uid://lht11ps46gid" path="res://addons/dialogue_manager/dialogue_resource.gd" id="13_j1fl7"]
-[ext_resource type="Resource" uid="uid://dadtdvosui7gw" path="res://Dialogues/computer.dialogue" id="14_wp3b7"]
+[ext_resource type="Script" uid="uid://4dutriqqpgvj" path="res://Scripts/camera_controller.gd" id="1_cx7fx"]
+[ext_resource type="Texture2D" uid="uid://chj4xjohgkq34" path="res://Sprites/TileMaps/Sci-Fi-Tiles_A2.png" id="1_hg2b3"]
+[ext_resource type="Texture2D" uid="uid://ciq6skerx3oih" path="res://Sprites/TileMaps/Sci-Fi-Tiles_A4.png" id="2_cx7fx"]
+[ext_resource type="Texture2D" uid="uid://d2mrbiqrjmbv0" path="res://Sprites/TileMaps/Sci-Fi-Tiles_A5.png" id="3_q0agp"]
+[ext_resource type="Texture2D" uid="uid://csfwm45ojmidk" path="res://Sprites/TileMaps/Sci-Fi-Tiles_B.png" id="4_3ml00"]
+[ext_resource type="Texture2D" uid="uid://5a6nx4a7yluf" path="res://Sprites/TileMaps/Sci-Fi-Tiles_C.png" id="5_hvldl"]
+[ext_resource type="Texture2D" uid="uid://dikcco8bbj75y" path="res://Sprites/TileMaps/Sci-Fi-Tiles_D.png" id="6_10eph"]
+[ext_resource type="Texture2D" uid="uid://7xr5inpcov77" path="res://Sprites/TileMaps/Sci-Fi-Tiles_E.png" id="7_ghu3f"]
+[ext_resource type="Script" uid="uid://cu2y87cnwiaeo" path="res://Scripts/player.gd" id="8_0ubx0"]
+[ext_resource type="Texture2D" uid="uid://b637e4hoa17ko" path="res://Sprites/Characters/Barrel.png" id="9_eq2dv"]
+[ext_resource type="Texture2D" uid="uid://doywxptg8d1gw" path="res://Sprites/Characters/Sprite - The Admin.png" id="10_mry5j"]
+[ext_resource type="Script" uid="uid://c2ur4on5v4vsw" path="res://Scenes/interactive_area.gd" id="11_4kcr1"]
+[ext_resource type="Script" uid="uid://lht11ps46gid" path="res://addons/dialogue_manager/dialogue_resource.gd" id="12_jxhj2"]
+[ext_resource type="Resource" uid="uid://dadtdvosui7gw" path="res://Dialogues/computer.dialogue" id="13_fttxx"]
+[ext_resource type="PackedScene" uid="uid://bcgt7vpeb30v" path="res://Scenes/Enemy.tscn" id="15_q0agp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0agp"]
+size = Vector2(99, 1029.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ml00"]
+size = Vector2(237, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvldl"]
+size = Vector2(69, 507.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10eph"]
+size = Vector2(2443, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghu3f"]
+size = Vector2(89, 1629)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ubx0"]
+size = Vector2(2684, 102)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cx7fx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8b22l"]
-texture = ExtResource("1_dbk2w")
+texture = ExtResource("1_hg2b3")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -378,7 +400,7 @@ texture = ExtResource("1_dbk2w")
 19:17/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ui2ho"]
-texture = ExtResource("2_uc2rk")
+texture = ExtResource("2_cx7fx")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -582,7 +604,7 @@ texture = ExtResource("2_uc2rk")
 7:19/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vg0lq"]
-texture = ExtResource("3_ii7mb")
+texture = ExtResource("3_q0agp")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -799,7 +821,7 @@ texture = ExtResource("3_ii7mb")
 13:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6j4dx"]
-texture = ExtResource("4_xsv5x")
+texture = ExtResource("4_3ml00")
 10:0/0 = 0
 11:0/0 = 0
 24:0/0 = 0
@@ -1394,7 +1416,7 @@ texture = ExtResource("4_xsv5x")
 23:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ngm6"]
-texture = ExtResource("5_ew6o3")
+texture = ExtResource("5_hvldl")
 18:0/0 = 0
 19:0/0 = 0
 20:0/0 = 0
@@ -2033,7 +2055,7 @@ texture = ExtResource("5_ew6o3")
 27:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_br1te"]
-texture = ExtResource("6_gbk34")
+texture = ExtResource("6_10eph")
 8:0/0 = 0
 9:0/0 = 0
 13:0/0 = 0
@@ -2633,7 +2655,7 @@ texture = ExtResource("6_gbk34")
 9:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n37gb"]
-texture = ExtResource("7_vvhbp")
+texture = ExtResource("7_ghu3f")
 16:0/0 = 0
 17:0/0 = 0
 18:0/0 = 0
@@ -3268,75 +3290,75 @@ sources/5 = SubResource("TileSetAtlasSource_br1te")
 sources/6 = SubResource("TileSetAtlasSource_n37gb")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7s4ng"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(12, 0, 174, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_372o5"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(12, 260, 174, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2k8n3"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(1116, 260, 174, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5vjbk"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(1116, 520, 174, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ai3d"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(1116, 780, 174, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfxhw"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(1116, 1040, 174, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ld1ic"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(728, 1040, 182, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2bd1f"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(728, 780, 182, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ni7g"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(728, 520, 182, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v77lp"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(728, 260, 182, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vpkut"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(8, 260, 182, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxxsq"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(8, 520, 182, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fka4i"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(8, 780, 182, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddd33"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(8, 1040, 182, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4tvbh"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(369, 260, 168, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kwcje"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(369, 520, 168, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4kdhl"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(369, 780, 168, 260)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dfvvq"]
-atlas = ExtResource("12_2k8n3")
+atlas = ExtResource("10_mry5j")
 region = Rect2(369, 1040, 168, 260)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mvl2g"]
@@ -3422,13 +3444,54 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21mg7"]
-radius = 16.0
-height = 96.0
+radius = 58.0
+height = 244.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwns7"]
 size = Vector2(77, 85)
 
-[node name="TopDownMovementScene" type="Node2D"]
+[node name="MapScene" type="Node2D"]
+
+[node name="Boundaries" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(-371.5, 257.75)
+shape = SubResource("RectangleShape2D_q0agp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(-241, 811)
+shape = SubResource("RectangleShape2D_3ml00")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(-90.5, 1024.75)
+shape = SubResource("RectangleShape2D_hvldl")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1105.5, 1316)
+shape = SubResource("RectangleShape2D_10eph")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(2282.5, 495.5)
+shape = SubResource("RectangleShape2D_ghu3f")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(921, -268)
+shape = SubResource("RectangleShape2D_0ubx0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -600
+limit_top = -300
+limit_right = 1900
+limit_bottom = 1000
+script = ExtResource("1_cx7fx")
+
+[node name="Area2D" type="Area2D" parent="Camera2D"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Area2D"]
+shape = SubResource("CircleShape2D_cx7fx")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(2, 2)
@@ -3441,18 +3504,19 @@ tile_map_data = PackedByteArray("AAAZABcABQAbAA4AAAAZABgABQAbAA8AAAAaABcABQAcAA4
 tile_set = SubResource("TileSet_3gxtm")
 
 [node name="Player" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(64, 80)
 scale = Vector2(0.5, 0.5)
 motion_mode = 1
-script = ExtResource("8_tdaup")
+script = ExtResource("8_0ubx0")
 wait_time = 0.3
 
 [node name="Shadow" type="Sprite2D" parent="Player"]
 modulate = Color(0, 0, 0, 0.533333)
 self_modulate = Color(0.485703, 0.485704, 0.485703, 1)
-position = Vector2(0, 40)
-scale = Vector2(1.5, 1)
-texture = ExtResource("9_sek5n")
+position = Vector2(-2, 106)
+scale = Vector2(3.59375, 2.39583)
+texture = ExtResource("9_eq2dv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_mvl2g")
@@ -3461,6 +3525,7 @@ autoplay = "WalkingSouth"
 frame_progress = 0.0779955
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-14, 0)
 shape = SubResource("CapsuleShape2D_21mg7")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -3468,13 +3533,19 @@ zoom = Vector2(1.5, 1.5)
 
 [node name="InteractiveArea" type="Area2D" parent="."]
 position = Vector2(1024, 184)
-script = ExtResource("12_nbpn7")
-dialogues = Array[ExtResource("13_j1fl7")]([ExtResource("14_wp3b7")])
+script = ExtResource("11_4kcr1")
+dialogues = Array[ExtResource("12_jxhj2")]([ExtResource("13_fttxx")])
 dialogueStart = "computerStart"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveArea"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_bwns7")
+
+[node name="Enemy2" parent="." instance=ExtResource("15_q0agp")]
+position = Vector2(626, 195)
+
+[node name="Enemy" parent="." instance=ExtResource("15_q0agp")]
+position = Vector2(1524, 1441)
 
 [connection signal="body_entered" from="InteractiveArea" to="InteractiveArea" method="_on_body_entered"]
 [connection signal="body_exited" from="InteractiveArea" to="InteractiveArea" method="_on_body_exited"]
