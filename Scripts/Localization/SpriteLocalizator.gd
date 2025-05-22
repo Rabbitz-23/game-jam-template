@@ -4,6 +4,7 @@ extends Node
 
 func _ready():
 	EventBus.change_locale.connect(_change_locale)
+	_change_locale(SettingsController.locale)
 	
 func _change_locale(locale: SettingsController.locales):
 	var spr: Sprite2D = get_parent()

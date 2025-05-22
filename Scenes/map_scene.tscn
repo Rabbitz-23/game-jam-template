@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://cu2y87cnwiaeo" path="res://Scripts/player.gd" id="8_0ubx0"]
 [ext_resource type="Texture2D" uid="uid://b637e4hoa17ko" path="res://Sprites/Characters/Barrel.png" id="9_eq2dv"]
 [ext_resource type="Texture2D" uid="uid://doywxptg8d1gw" path="res://Sprites/Characters/Sprite - The Admin.png" id="10_mry5j"]
-[ext_resource type="Script" uid="uid://c2ur4on5v4vsw" path="res://Scenes/interactive_area.gd" id="11_4kcr1"]
+[ext_resource type="Script" uid="uid://c2ur4on5v4vsw" path="res://Scripts/interactive_area.gd" id="11_4kcr1"]
 [ext_resource type="Script" uid="uid://lht11ps46gid" path="res://addons/dialogue_manager/dialogue_resource.gd" id="12_jxhj2"]
 [ext_resource type="Resource" uid="uid://dadtdvosui7gw" path="res://Dialogues/computer.dialogue" id="13_fttxx"]
 [ext_resource type="PackedScene" uid="uid://bcgt7vpeb30v" path="res://Scenes/Enemy.tscn" id="15_q0agp"]

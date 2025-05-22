@@ -14,7 +14,7 @@ var sfxVolumeSetting: float
 
 func _ready():
 	if locale == null:
-		locale = locales.esES
+		set_locale(locales.esES)
 
 func set_volumes(master: float, music: float, sfx: float):
 	masterVolumeSetting = master
